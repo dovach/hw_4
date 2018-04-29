@@ -56,9 +56,9 @@ class CircularInt {
         CircularInt operator * (int a) ;
         CircularInt operator % (int a) ;
         CircularInt operator ^ (int a) ;
-        CircularInt& operator ++();
+        CircularInt& operator ++() ;
         CircularInt& operator --() ;
-        CircularInt operator -() ;
+        CircularInt operator   -() ;
         CircularInt operator ++ (int) ;
         CircularInt operator -- (int) ;
         CircularInt& operator += (int a) ;
@@ -73,34 +73,38 @@ class CircularInt {
         bool operator != (int a) ;
         bool operator >= (int a) ;
         bool operator <= (int a) ;
-        bool operator < (int a) ;
-        bool operator > (int a) ;
+        bool operator <  (int a)  ;
+        bool operator >  (int a)  ;
         bool operator == (CircularInt const &obj) ;
         bool operator != (CircularInt const &obj) ;
         bool operator >= (CircularInt const &obj) ;
         bool operator <= (CircularInt const &obj) ;
-        bool operator < (CircularInt const &obj) ;
-        bool operator > (CircularInt const &obj) ;
+        bool operator <  (CircularInt const &obj) ;
+        bool operator >  (CircularInt const &obj) ;
         ostream& operator<< (ostream& os) ;
         friend istream& operator>> (istream& is, CircularInt& c) ; 
 
 };
-inline ostream& operator<< (ostream& os, const CircularInt& c) {
+
+    inline ostream& operator<< (ostream& os, const CircularInt& c) {
     os << c.CurVal() ;
     return os;
-}
-inline istream& operator>> (istream& is, CircularInt& c)  
-{  
+    }
+    inline istream& operator>> (istream& is, CircularInt& c)  
+    {  
     is>> c._min>> c._max>> c._CurVal;  
     return is;  
-}  
-inline const CircularInt operator+(int a, const CircularInt& c2) {
+    }  
+    inline const CircularInt operator+(int a, const CircularInt& c2) {
     return CircularInt(c2.min(),c2.max(),a+c2.CurVal());
-}
-inline const CircularInt operator-(int a, const CircularInt& c2) {
+    }
+    inline const CircularInt operator-(int a, const CircularInt& c2) {
     return CircularInt(c2.min(),c2.max(),a+(c2.max()-c2.CurVal()));
-}
-
+    }
+    inline const CircularInt operator*(int a, const CircularInt& c2) {
+    return CircularInt(c2.min(),c2.max(),a*c2.CurVal());
+    }
+    inline const CircularInt operator/(int a, const CircularInt& c2) ;
 
 //+=	-=	/=	%=	^=	&=
 //|=	*=	

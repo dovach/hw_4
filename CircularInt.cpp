@@ -215,6 +215,52 @@ int gcdExtended(int a, int b, int *x, int *y)
                 }
                 return *this; 
         }
+        bool  CircularInt::operator == (int a) {
+                return _CurVal==a;
+        }
+        bool  CircularInt::operator != (int a) {
+                return _CurVal!=a;
+        }
+        bool  CircularInt::operator >= (int a) {
+                return _CurVal>=a;
+        }
+        bool  CircularInt::operator <= (int a) {
+                return _CurVal<=a;
+        }
+        bool  CircularInt::operator < (int a) {
+                return _CurVal<a;
+        }
+        bool  CircularInt::operator > (int a) {
+                return _CurVal>a;
+        }
+        bool  CircularInt::operator == (CircularInt const &obj) {
+                return _CurVal==obj.CurVal();
+        }
+        bool  CircularInt::operator != (CircularInt const &obj) {
+                return _CurVal!=obj.CurVal();
+        }
+        bool  CircularInt::operator >= (CircularInt const &obj) {
+                return _CurVal>=obj.CurVal();
+        }
+        bool  CircularInt::operator <= (CircularInt const &obj) {
+                return _CurVal<=obj.CurVal();
+        }
+        bool  CircularInt::operator < (CircularInt const &obj) {
+                return _CurVal<obj.CurVal();
+        }
+        bool  CircularInt::operator > (CircularInt const &obj) {
+                return _CurVal>obj.CurVal();
+        }
+        
+        inline const CircularInt operator/(int a, const CircularInt& c2) {
+                if(modDivide(a,c2.CurVal(),c2.max())!=-1){
+                        int ans=modDivide(a,c2.CurVal(),c2.max());
+                        return CircularInt(c2.min(),c2.max(),ans);
+                }else{
+                        throw new const string("Division not defined");
+                        return CircularInt(c2.min(),c2.max(),c2.CurVal());
+                }
+        }
 
 
 
