@@ -65,6 +65,22 @@ class CircularInt {
         CircularInt& operator -= (int a) ;
         CircularInt& operator *= (int a) ;
         CircularInt& operator /= (int a) ;
+        CircularInt& operator += (CircularInt const &obj) ;
+        CircularInt& operator -= (CircularInt const &obj) ;
+        CircularInt& operator *= (CircularInt const &obj) ;
+        CircularInt& operator /= (CircularInt const &obj) ;
+        bool operator == (int a) ;
+        bool operator != (int a) ;
+        bool operator >= (int a) ;
+        bool operator <= (int a) ;
+        bool operator < (int a) ;
+        bool operator > (int a) ;
+        bool operator == (CircularInt const &obj) ;
+        bool operator != (CircularInt const &obj) ;
+        bool operator >= (CircularInt const &obj) ;
+        bool operator <= (CircularInt const &obj) ;
+        bool operator < (CircularInt const &obj) ;
+        bool operator > (CircularInt const &obj) ;
         ostream& operator<< (ostream& os) ;
         friend istream& operator>> (istream& is, CircularInt& c) ; 
 
@@ -84,7 +100,7 @@ inline const CircularInt operator+(int a, const CircularInt& c2) {
 inline const CircularInt operator-(int a, const CircularInt& c2) {
     return CircularInt(c2.min(),c2.max(),a+(c2.max()-c2.CurVal()));
 }
-//<	>	<=	>=	++	--
-//<<	>>	==	!=
+
+
 //+=	-=	/=	%=	^=	&=
 //|=	*=	

@@ -192,6 +192,29 @@ int gcdExtended(int a, int b, int *x, int *y)
                 }
                 return *this; 
         }
+        CircularInt& CircularInt::operator += (CircularInt const &obj) {
+                _CurVal=_CurVal+obj.CurVal();
+                normalize();
+                return *this;
+        }
+        CircularInt& CircularInt::operator -= (CircularInt const &obj) {
+                 _CurVal=_CurVal-obj.CurVal();
+                normalize();
+                return *this;
+        }
+        CircularInt& CircularInt::operator *= (CircularInt const &obj) {
+                _CurVal=_CurVal*obj.CurVal();
+                normalize();
+                return *this;}
+        CircularInt& CircularInt::operator /= (CircularInt const &obj) {
+                if(modDivide(_CurVal,obj.CurVal(),_max)!=-1){
+                _CurVal=modDivide(_CurVal,obj.CurVal(),_max);
+                normalize();
+                }else{
+                throw new std::string("Division not defined");        
+                }
+                return *this; 
+        }
 
 
 
